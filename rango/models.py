@@ -19,7 +19,6 @@ class Category(models.Model):
 	def __str__(self):
 		return self.name
 		
-
 class Page(models.Model):
 	category = models.ForeignKey(Category)
 	title = models.CharField(max_length=128)
@@ -28,18 +27,14 @@ class Page(models.Model):
 	
 	def __str__(self): 
 		return self.title
-		
-		
+
 class PageAdmin(admin.ModelAdmin):
 	list_display = ('title', 'category', 'url')
-	
-	
+
 class UserProfile(models.Model):
-	user = models.OneToOneField(User)
-	website = models.URLField(blank=True)
-	picture = models.ImageField(upload_to='profile_images', blank=True)
-	
-	def __str__(self):
-		return self.user.username
+        user = models.OneToOneField(User)
+        website = models.URLField(blank=True)
+        picture = models.ImageField(upload_to='profile_images', blank=True)
 
-
+        def __str__(self):
+                return self.user.username
